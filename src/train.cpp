@@ -4,14 +4,6 @@
 
 Train::Train(): countOp(0), first(nullptr) {}
 
-Train::Cage* Train::create(bool light) {
-  Cage *cage = new Cage;
-  cage->light = light;
-  cage->next = nullptr;
-  cage->prev = nullptr;
-  return cage;
-}
-
 void Train::addCage(bool light) {
   Cage *cage = new Cage;
   cage->light = light;
@@ -39,7 +31,7 @@ int Train::getLength() {
   Cage* temp = first;
   while (true) {
     countOp++;
-    lenght++;
+    len++;
     int tr_len;
     temp = temp->next;
     if (temp->light) {
@@ -55,8 +47,7 @@ int Train::getLength() {
       len = tr_len;
     }
   }
-}
-return tr_len;
+  return tr_len;
 }
 
 int Train::getOpCount() {
